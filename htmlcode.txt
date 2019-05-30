@@ -1,0 +1,185 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+ background: url(IMG_20190320_185610.jpg) no-repeat center center fixed; 
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;}
+ * {box-sizing: border-box;}
+
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+ background-color: #555;
+ color: white;
+ padding: 16px 20px;
+ border: none;
+ cursor: pointer;
+ opacity: 0.8;
+ position: fixed;
+ bottom: 23px;
+ right: 28px;
+ width: 280px;
+}
+.bttn {
+
+ color: white;
+ padding-top:150px
+ cursor: pointer;
+ opacity: 0.8;
+ position: fixed;
+ bottom: 23px;
+ right: 28px;
+
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+ display: none;
+ position: fixed;
+ bottom: 0;
+ right: 15px;
+ border: 3px solid #f1f1f1;
+ z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+ max-width: 300px;
+ padding: 10px;
+ background-color: white;
+}
+
+/* Full-width textarea */
+.form-container .a {
+ width: 100%;
+ padding: 15px;
+ margin: 5px 0 22px 0;
+ border: none;
+ background: #f1f1f1;
+ resize: none;
+ min-height: 100px;
+}
+.form-container .b {
+ width: 100%;
+ padding: 15px;
+ margin: 10px 0 22px 0;
+ margin-bottom:65px;
+ border: none;
+ background: #f1f1f1;
+ resize: none;
+ min-height: 100px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+ background-color: #ddd;
+ outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn{
+ background-color: #4CAF50;
+ color: white;
+ padding: 16px 20px;
+ border: none;
+ cursor: pointer;
+ width: 100%;
+ margin-bottom:10px;
+ opacity: 0.8;
+
+}
+.close {
+ float:right;
+ display:inline-block;
+ padding:2px 5px;
+ background:#ccc;
+}
+<!--.close:hover {
+ float:right;
+ display:inline-block;
+ padding:2px 5px;
+ background:#ccc;
+ color:#fff;
+} -->
+element.style {
+ padding-top: 0px;
+ padding-bottom: 0px;
+ margin-bottom: 0px;
+}
+
+</style>
+</head>
+
+<body>
+<center>
+<h2>INFOSYS LEARNING PLATFORM</h2>
+<p><h2>ILP</h2></p>
+</center>
+
+
+<button class="open-button" onclick="openForm()">Chat</button>
+
+<div class="chat-popup" onfocusout='closeForm()' id="myForm">
+
+<form class="form-container" target="_self" method = "post" style="margin-bottom:0px">
+<img class="close" onclick="closeForm()" src="minimize.png" height="23" width="30"/>
+ <!-- <button id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>x</button>-->
+ <h1>Chat</h1>	
+ <!--<button class="btn-minimize"></button>-->
+ <br>
+ <div class="container">
+ <div class="alert alert-primary" role="alert">
+ User: {{user_input}}
+ <div class="alert alert-dark" role="alert">
+ Friend: {{bot_response}}
+ </div>
+ <label for="msg"><b>Message</b></label>
+ <form action="/process" method="POST">
+ <div class="form-group">
+ <label for="exampleInputEmail1">Friend Chatbot
+ <input type="text" name="user_input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Talk to my friend">
+ <button type="submit" class="btn btn-primary">Send</button>
+</form
+ </div>
+
+ </form>
+</div>
+
+<script>
+
+function format() {
+ var date = new Date();
+ var hours = date.getHours();
+ var strTime = hours;
+ if (strTime>=9 && strTime<=23)
+ {
+ return true;
+ }
+ return false;
+}
+
+
+function myFunction() {
+ var x = document.getElementById("myForm");
+ x.style.display = "none";
+
+}
+
+function openForm() {
+if (format()){
+ document.getElementById("myForm").style.display = "block";
+ }
+}
+
+function closeForm() {
+ document.getElementById("myForm").style.display = "none";
+}
+</script>
+</body>
+</html>
+
+
